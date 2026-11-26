@@ -1,0 +1,48 @@
+# Built artifacts
+*.apk
+*.aab
+*.dex
+*.class
+
+# Gradle
+.gradle/
+build/
+/build/
+/app/build/
+/local.properties
+/.idea/
+.DS_Store
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Kotlin
+*.kotlin_metadata
+
+# Logs
+*.log
+
+# Keystore (NEVER commit)
+*.jks
+*.keystore
+keystore.properties
+
+# IDE
+*.iml
+.vscode/
+*.swp
+*~
+
+# OS
+Thumbs.db
+
+# Test reports
+reports/
+test-results/
+
+# Coverage
+*.ec
+coverage/
+
+# Signing
+signing/

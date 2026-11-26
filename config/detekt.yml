@@ -1,0 +1,71 @@
+# Detekt configuration for OpenBridge
+# https://detekt.github.io/detekt/comments.html
+
+complexity:
+  active: true
+  LongMethod:
+    active: true
+    threshold: 80
+  LongParameterList:
+    active: true
+    functionThreshold: 6
+    constructorThreshold: 7
+  ComplexCondition:
+    active: true
+    threshold: 4
+  ComplexMethod:
+    active: true
+    threshold: 15
+  TooManyImplementations:
+    active: false  # we have multiple security impls by design
+
+style:
+  active: true
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+    excludePackageStatements: true
+    excludeImportStatements: true
+  MagicNumber:
+    active: false  # too noisy for crypto code with constants
+  ReturnCount:
+    active: true
+    max: 4
+  WildcardImport:
+    active: true
+    excludes: ['**/test/**', '**/androidTest/**']
+
+empty-blocks:
+  active: true
+  EmptyFunctionBlock:
+    active: false  # we use empty blocks intentionally for interface stubs
+
+exceptions:
+  active: true
+  SwallowedException:
+    active: true
+  TooGenericExceptionCaught:
+    active: false  # we catch Throwable in some security code intentionally
+
+performance:
+  active: true
+  ForEachOnRange:
+    active: true
+  SpreadOperator:
+    active: true
+
+potential-bugs:
+  active: true
+  UnsafeCallOnNullableType:
+    active: true
+  IteratorNotThrowingNoSuchElementException:
+    active: true
+
+naming:
+  active: true
+  FunctionNaming:
+    active: true
+    functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
+  ClassNaming:
+    active: true
+    classPattern: '[A-Z][a-zA-Z0-9]*'
